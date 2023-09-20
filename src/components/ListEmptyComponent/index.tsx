@@ -3,7 +3,7 @@ import { styles } from "./styles";
 
 const clipboard = require("../../assets/img/clipboard.png");
 
-export default function ListEmptyComponent() {
+export function ListEmptyComponent() {
     return (
         <View style={styles.listEmptyContainer}>
             <Image source={clipboard} style={styles.listEmptyImage} />

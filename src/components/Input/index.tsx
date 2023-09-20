@@ -9,7 +9,7 @@ type Props = {
     style?: ViewStyle;
 }
 
-export default function Input({ value, onChangeText, placeholderText, style: styleOverride }: Props) {
+export function Input({ value, onChangeText, placeholderText, style: styleOverride }: Props) {
     const [isInputOnFocus, setIsInputOnFocus] = useState<boolean>(false);
 
     function handleOnFocus() {

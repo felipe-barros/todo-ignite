@@ -9,7 +9,7 @@ type Props = {
     style?: ViewStyle;
 };
 
-export default function Button({ onPress, style: styleOverride }: Props) {
+export function Button({ onPress, style: styleOverride }: Props) {
     const [isButtonHover, setIsButtonHover] = useState<boolean>(false);
 
     function handlePressInButton() {

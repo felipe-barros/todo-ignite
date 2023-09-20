@@ -1,11 +1,11 @@
 import { useMemo, useState } from "react";
-import { Image, TouchableOpacity, View, Text, FlatList, Alert } from "react-native";
+import { Image, View, FlatList, Alert } from "react-native";
 import { styles } from "./styles";
-import ListCounterBadge from "../../components/ListCounterBadge";
-import Input from "../../components/Input";
-import ListEmptyComponent from "../../components/ListEmptyComponent";
-import Task from "../../components/Task";
-import Button from "../../components/Button";
+import { ListCounterBadge } from "../../components/ListCounterBadge";
+import { Input } from "../../components/Input";
+import { ListEmptyComponent } from "../../components/ListEmptyComponent";
+import { Task } from "../../components/Task";
+import { Button } from "../../components/Button";
 
 const logo = require("../../assets/img/logo.png");
 
@@ -42,22 +42,21 @@ export default function Home() {
         updatedTasks[index] = createNewTask(t.title, !t.completed);
 
         setTasks(updatedTasks);
-    }
+    };
 
     function handleOnPressRemove(index: number) {
         Alert.alert("Remover tarefa", "Quer mesmo remover essa tarefa?", [
             {
                 text: "Sim",
                 style: "destructive",
-                onPress: () => setTasks(prevState => tasks.filter((t, i) => i !== index))
+                onPress: () => setTasks(prevState => prevState.filter((t, i) => i !== index))
             },
             {
                 text: "Não",
                 style: "cancel",
             }
         ])
-
-    }
+    };
 
     return (
         <View style={styles.container}>
@@ -79,6 +78,7 @@ export default function Home() {
                 </View>
                 <FlatList
                     data={tasks}
+                    keyExtractor={(item, index) => index.toString() + item.title}
                     renderItem={({ item, index }) =>
                         <Task
                             title={item.title}
@@ -86,7 +86,7 @@ export default function Home() {
                             onPressComplete={() => handleOnPressComplete(index)}
                             onPressRemove={() => handleOnPressRemove(index)}
                         />}
-                    ListEmptyComponent={() => <ListEmptyComponent />}
+                    ListEmptyComponent={<ListEmptyComponent />}
                     ListFooterComponent={() => <View style={styles.emptyView} />}
                 />
             </View>

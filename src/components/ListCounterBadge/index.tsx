@@ -7,7 +7,7 @@ type Props = {
     style?: ViewStyle;
 }
 
-function ListCounterBadge({ counter, type, style: styleOverride }: Props) {
+export function ListCounterBadge({ counter, type, style: styleOverride }: Props) {
     function getTitle() {
         switch (type) {
             case "CREATED":
@@ -39,5 +39,3 @@ function ListCounterBadge({ counter, type, style: styleOverride }: Props) {
         </View>
     )
 }
-
-export default ListCounterBadge;

@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { View, Text, Image, ViewStyle, TouchableOpacity, TouchableWithoutFeedback } from "react-native";
 import { styles } from "./styles";
-import { memo, useState } from "react";
 
 const check = require("../../assets/img/check.png");
 const checkHover = require("../../assets/img/checkHover.png");
@@ -17,7 +17,7 @@ type Props = {
     onPressRemove: () => void;
 }
 
-function Task({ title, completed, onPressComplete, onPressRemove, style: styleOverride }: Props) {
+export function Task({ title, completed, onPressComplete, onPressRemove, style: styleOverride }: Props) {
     const [isCompleteButtonHover, setIsCompleteButtonHover] = useState<boolean>(false);
     const [isRemoveButtonHover, setIsRemoveButtonHover] = useState<boolean>(false);
 
@@ -65,5 +65,3 @@ function Task({ title, completed, onPressComplete, onPressRemove, style: styleOv
         </View>
     )
 }
-
-export default Task;
