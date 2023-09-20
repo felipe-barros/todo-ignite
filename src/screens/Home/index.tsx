@@ -87,7 +87,7 @@ export default function Home() {
                             onPressRemove={() => handleOnPressRemove(index)}
                         />}
                     ListEmptyComponent={() => <ListEmptyComponent />}
-                    style={styles.list}
+                    ListFooterComponent={() => <View style={styles.emptyView} />}
                 />
             </View>
         </View>

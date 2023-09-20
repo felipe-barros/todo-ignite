@@ -35,4 +35,7 @@ export const styles = StyleSheet.create({
         justifyContent: "space-between",
         marginBottom: 20,
     },
+    emptyView: {
+        height: 20,
+    }
 })
